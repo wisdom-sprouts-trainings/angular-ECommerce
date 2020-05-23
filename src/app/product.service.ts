@@ -1,7 +1,9 @@
 import {Product} from './product.model';
 
 import { Component, EventEmitter, Injectable} from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import {map} from 'rxjs/operators';
 
 @Injectable()
 export class ProductServices
@@ -21,7 +23,7 @@ export class ProductServices
       new Product('Nike Shoes','this is new sports shoes','shoes1.jpg',500)
   ];
 
-    constructor()
+    constructor(private http:HttpClient)
     {
 
     }
@@ -32,6 +34,31 @@ export class ProductServices
         return this.products.slice();
     }
 
+
+    fetchData()
+    {
+        this.http.get<{[key:string]:Product}>("http://localhost:3006/api/product")
+    .pipe(map(responseData => {
+        const postArray =[];
+        for (const key in responseData)
+        {
+            if(responseData.hasOwnProperty(key))
+            {
+                postArray.push({...responseData[key],id:key})
+            }
+        }
+
+        return postArray;
+
+           
+    })).subscribe(posts =>{
+        console.log("array"+posts);
+  
+       this.products = posts;
+     })
+   
+    ;
+    }
 
     
 

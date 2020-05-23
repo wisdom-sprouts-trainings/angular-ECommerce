@@ -11,7 +11,8 @@ import { RecipeStartComponent } from './recipe-list/recipe-start/recipe-start.co
 import { AppRoutingModule } from './app-routing.model';
 import { ProductServices } from './product.service';
 import { CartComponent } from './cart/cart.component';
-
+import {HttpClientModule} from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,8 +27,9 @@ import { CartComponent } from './cart/cart.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
-    
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
     
   ],
   providers: [ProductServices],
