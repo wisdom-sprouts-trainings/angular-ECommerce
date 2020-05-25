@@ -13,6 +13,7 @@ import { ProductServices } from './product.service';
 import { CartComponent } from './cart/cart.component';
 import {HttpClientModule} from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
+import { CartServices } from './cart.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule
     
   ],
-  providers: [ProductServices],
+  providers: [ProductServices,CartServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

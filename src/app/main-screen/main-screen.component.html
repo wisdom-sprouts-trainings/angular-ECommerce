@@ -36,18 +36,21 @@
     
         <div class="col-lg-3 text-center" *ngFor="let i of products">
          
-          <a routerLink="/login">
+          <a routerLink="/product-detail/{{i._id}}">
                     <h2>
                         {{i.name}}
                     </h2>
 
-                    <img width="200px" height="200px" src="assets/shoes1.jpg" alt="">
+                    <img width="200px" height="200px" src="http://localhost:3006/{{i.productImagePath}}" alt="">
                     <p>
                      Descrrption:   {{i.description}}
                     </p>
 
                     <h1>
                       Price : {{i.price}} rs.
+                    </h1>
+                    <h1>
+                      Stock : {{i.stock}} Qty.
                     </h1>
                   </a>
                   <hr>

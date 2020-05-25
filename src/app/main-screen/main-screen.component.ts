@@ -19,7 +19,9 @@ export class MainScreenComponent implements OnInit {
   ngOnInit(): void {
     
     this.http.get<{[key:string]:Product}>("http://localhost:3006/api/product")
-    .pipe(map(responseData => {
+    .pipe(map(
+      responseData => 
+      {
         const postArray =[];
         for (const key in responseData)
         {
@@ -29,11 +31,12 @@ export class MainScreenComponent implements OnInit {
             }
         }
 
+        //console.log(postArray);
         return postArray;
 
            
     })).subscribe(posts =>{
-        console.log("array"+posts);
+     //   console.log("array"+posts);
   
        this.products = posts;
      })

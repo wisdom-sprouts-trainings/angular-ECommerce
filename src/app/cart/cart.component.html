@@ -17,26 +17,22 @@
                 </tr>
 
             </thead>
-
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>T-shirt</td>
-                    <td><img src="assets/shoes1.jpg" width="20px" height="20px" alt=""></td>
-                    <td>5</td>
-                    <td>500rs</td>
-                    <th>2500rs</th>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>T-shirt</td>
-                    <td><img src="assets/tshirt1.jpg" width="20px" height="20px" alt=""></td>
-                    <td>5</td>
-                    <td>500rs</td>
-                    <th>2500rs</th>
-                </tr>
+                <tr  *ngFor="let i of cart; let m = index">
+                  
+                    <td>{{m+1}}</td>
+                    <td>{{i.product_name}}</td>
 
+                    <td>{{i.product_name}}</td>
+                    <td>{{i.product_count}}</td>
+                    <td>{{i.product_price}}</td>
+                    
+                    <td>{{i.product_count * i.product_price }}</td>
+
+                </tr>
             </tbody>
+
+          
 
             <tfoot>
 
@@ -74,5 +70,13 @@
             </tfoot>
 
         </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <button class="btn btn-success">
+            Place Order
+        </button>
     </div>
 </div>

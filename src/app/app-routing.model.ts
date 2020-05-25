@@ -10,7 +10,7 @@ const appRoutes:Routes =
 [
     { path: '', redirectTo: '/main', pathMatch: 'full' },
     {path:'main',component:MainScreenComponent},
-    {path:'product-detail',component:ProductDetailsComponent},
+    {path:'product-detail/:id',component:ProductDetailsComponent},
     {path:'login',component:LoginComponent},
     {path:'register',component:RegistrationComponent},
     {path:'mycart',component:CartComponent}

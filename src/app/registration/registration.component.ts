@@ -18,19 +18,14 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onCreatePost(postData: { name: string; lastname: string,email: string; password: string,address: string; })
+  onCreatePost(postData: { name: string; lastname: string, email: string; password: string, address: string; })
   {
 
     console.log(postData);
 
-    this.http
-      .post(
-        'http://localhost:3006/api/signup',
-        postData
-      )
-      .subscribe(responseData => {
+    this.http .post('http://localhost:3006/api/signup',postData).subscribe(responseData => {
         console.log(responseData);
-        alert("user created");
+        alert("welcome account is created");
       });
 
   }
